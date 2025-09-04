@@ -35,14 +35,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Numbers and navigation layer
     [1] = LAYOUT_split_3x6_3(
         KC_TAB,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,         KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-        KC_DEL, LCSG(KC_1), LCSG(KC_2), LCSG(KC_W), LCSG(KC_D), LCSG(KC_T), KC_PDOT, KC_DOWN, KC_UP,   KC_LEFT, KC_RGHT, KC_PGUP,
+        KC_LCTL, LCSG(KC_1), LCSG(KC_2), LCSG(KC_W), LCSG(KC_D), LCSG(KC_T), KC_PDOT, KC_DOWN, KC_UP,   KC_LEFT, KC_RGHT, KC_PGUP,
         KC_LSFT, LCSG(KC_0), LCSG(KC_9), LCSG(KC_6), LCSG(KC_7), LCSG(KC_8), KC_PCMM, LCSG(KC_F), LCSG(KC_H), LCSG(KC_N), LCSG(KC_S), KC_PGDN,
                                             KC_LGUI, KC_TRNS, KC_SPC,  KC_ENT,  MO(3),   KC_RALT
     ),
 
     // Symbols layer
     [2] = LAYOUT_split_3x6_3(
-        KC_TAB,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
+        KC_TAB,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL,
         KC_LCTL, LCG(KC_SPC), LCSG(KC_I), LCSG(KC_O), LCSG(KC_P), LSG(KC_5), KC_PSLS, KC_PEQL, LSFT_T(KC_LBRC), KC_RBRC, KC_BSLS, KC_GRV,
         KC_LSFT, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,        KC_QUES, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, KC_TILD,
                                             KC_LGUI, MO(3),  KC_SPC,  KC_ENT,  KC_TRNS, KC_RALT

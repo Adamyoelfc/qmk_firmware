@@ -22,6 +22,23 @@ qmk compile -kb crkbd/r2g -km default
 
 #include QMK_KEYBOARD_H
 
+enum custom_keycodes {
+    GLOBE = SAFE_RANGE,
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case GLOBE:
+            if (record->event.pressed) {
+                host_consumer_send(0x029D);
+            } else {
+                host_consumer_send(0);
+            }
+            return false;
+    }
+    return true;
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Base layer - QWERTY
     [0] = LAYOUT_split_3x6_3(
@@ -45,14 +62,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL,
         KC_LCTL, LCG(KC_SPC), LCSG(KC_I), LCSG(KC_O), LCSG(KC_P), LSG(KC_5), KC_PSLS, KC_PEQL, LSFT_T(KC_LBRC), KC_RBRC, KC_BSLS, KC_GRV,
         KC_LSFT, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,        KC_QUES, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, KC_TILD,
-                                            KC_LGUI, MO(3),  KC_SPC,  KC_ENT,  KC_TRNS, KC_RALT
+                                            KC_LGUI, MO(3),  KC_SPC,  KC_ENT,  KC_TRNS, KC_RALTqp
     ),
 
     // Function and media layer
     [3] = LAYOUT_split_3x6_3(
         KC_TAB,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,        KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
         KC_NO,   KC_BRIU, KC_MNXT, KC_MPLY, KC_VOLU, KC_NO,        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-        KC_NO,   RM_VALD, KC_MPRV, KC_MUTE, KC_VOLD, KC_NO,        BL_TOGG, LM_TOGG, UG_TOGG, RM_TOGG, KC_NO,   KC_NO,
+        GLOBE,      RM_VALD, KC_MPRV, KC_MUTE, KC_VOLD, KC_NO,        BL_TOGG, LM_TOGG, UG_TOGG, RM_TOGG, KC_NO,   KC_NO,
                                             KC_LGUI, KC_TRNS, KC_SPC,  KC_ENT,  KC_TRNS, KC_RALT
     )
 };

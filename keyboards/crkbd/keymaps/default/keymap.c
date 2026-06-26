@@ -55,11 +55,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             KC_LGUI, MO(3),  KC_SPC,  KC_ENT,  KC_TRNS, KC_RALT
     ),
 
+        // case KC_PGUP: return "PUP";
+        // case KC_PGDN: return "PDN";
+        // case KC_HOME: return "HOM";
+        // case KC_END:  return "END";
     // Function and media layer
     [3] = LAYOUT_split_3x6_3(
         KC_TAB,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,        KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-        KC_NO,   KC_BRIU, KC_MNXT, KC_MPLY, KC_VOLU, KC_NO,        ANIM_NEXT, KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,
-        KC_NO,   RM_VALD, KC_MPRV, KC_MUTE, KC_VOLD, KC_NO,        RM_TOGG, RM_NEXT, RM_HUEU, RM_SPDU, KC_NO,   KC_NO,
+        KC_NO,   KC_BRIU, KC_MNXT, KC_MPLY, KC_VOLU, KC_NO,        ANIM_NEXT, KC_NO, KC_PGUP, KC_HOME,   KC_NO,   KC_NO,
+        KC_NO,   RM_VALD, KC_MPRV, KC_MUTE, KC_VOLD, KC_NO,        RM_TOGG, RM_NEXT, KC_PGDN, KC_END,   KC_NO,   KC_NO,
                                             KC_LGUI, KC_TRNS, KC_SPC,  KC_ENT,  KC_TRNS, KC_RALT
     )
 };
